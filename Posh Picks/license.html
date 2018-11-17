@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    html{
+            background-color: beige;
+        }
+        p1{margin-left: 550px;
+            margin-right: 500px;
+            margin-bottom: 200px;
+            font-size: 35px; 
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        
+            color: rgb(0, 0, 0);}
+
+        .btn
+        {
+            margin-left: 700px;
+            margin-right: 500px;
+            margin-bottom: 150px;
+            margin-top: 150px;  
+
+        }  
+        
+        
+        button{
+            margin-left: 700px;
+            margin-right: 500px;
+            border-style:dashed;
+           
+        }
+        p2{margin-left: 650px;
+            margin-right: 500px;
+            margin-top: 250px;
+            font: size 30; 
+            font-family:'Courier New', Courier, monospace;
+            color: rgb(0, 0, 0);}
+
+            p3{margin-left: 600px;
+            margin-right: 500px;
+            margin-top: 450px;
+            font: size 30; 
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: rgb(0, 0, 0);}
+
+         img {
+                
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            }
+
+        </style>
+
+<body>
+
+
+    <script>
+
+        var xarray = [];
+        var yarray = [];
+
+        function uploadFile() {
+            var blobFile = $('#filechooser')[0].files[0];
+            var formData = new FormData();
+
+            // upload image through form (jpg/jpeg/png)
+            formData.append("filename", blobFile);
+
+            // change the access_key and secret_key here
+            formData.append("access_key", "1ee882af28cbc7bb32bf");
+            formData.append("secret_key", "9afb6965bc11bb8cc60774a657b0c52df504bf15");
+
+            //To use Jquery, you can download it from http://jquery.com/download/
+            //or include it from a CDN into your HTML.
+            $.ajax({
+                url: "https://lpr.recoqnitics.com/detect",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    console.log(response);
+                    var io = response.licensePlates[0].LicensePlatesNumber;
+                    console.log(xarray);
+                    xarray.push(io); function compare(xarray, yarray) {
+                        const finalarray = [];
+                        xarray.forEach((e1) => yarray.forEach((e2) => {
+                            if (e1 == e2) {
+                                finalarray.push(e1)
+                                $("#output").text("Access Granted")
+                            }
+                        }
+                        ));
+
+                    }
+                },
+                error: function (jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage); // Optional
+                }
+            });
+        }
+    </script>
+
+
+    <p1>Welcome to PARK U.</p1>
+    <p2>The Future Of Parking.</p2>
+    <p3>Move your car to the designated area.</p3>
+    <img src="parking.gif">
+
+
+    <input id="filechooser" class="btn" type="file" /><br>
+    <button onclick="uploadFile()">Upload!</button>
+    <p id="output"></p>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
