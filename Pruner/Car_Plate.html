@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Car Plate Identifier</title>
+		<link rel="icon" type="image/ico/png" href="https://recoqnitics.com/static/img/favicon.ico">
+		<!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap_css.css"> -->
+		<!-- <link rel="stylesheet" type="text/css" href="assets/css/fileselect_css.css"> -->
+		<link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main2.css">
+		<script src="assets/js/jquery-3.js"></script>
+
+    <link rel="stylesheet" href="assets/css/pruner.css">
+		<!-- <script src="assets/js/upload_car.js"></script> -->
+	</head>
+
+	<body>
+		<div class="perspective effect-rotate-left">
+			<div class="container"><div class="outer-nav--return"></div>
+				<div id="viewport" class="l-viewport">
+					<div class="l-wrapper">
+						<header class="header">
+							<a class="header--logo" href="index.html">
+								<img src="assets/img/logo.png" alt="Global">
+								<p>Pruner</p>
+							</a>
+						</div>
+						</div>
+						</div>
+						</div>
+						<div method="post" enctype="multipart/form-data" class="upload-form">
+						  <div class="container-form">
+								<div class="left-side">
+								<h1>Car Plate Identifier</h1>
+								<form class=form_class name="fileinfo">
+						      <label>Photo:</label> <input type="file" id="file" name="filename" onchange="loadImg(event)" required />
+						      <img src="#" alt="" id="imgg">
+						        <button type="button" onclick="uploadPhoto()">Upload!</button>
+										<button type="button" onclick="resetHTML()">Reset</button>
+						    </form>
+								</div>
+				<div class="right-side">
+		        <h2 id="res"><b>Result</b></h2>
+		        <p id="demo"></p>
+		    </div>
+</div>
+		    </div>
+				<script>
+				var API_URL = 'https://lpr.recoqnitics.com/detect'
+				var ACCESS_KEY = 'fb4aa83ffe44994deed7'
+				var SECRET_KEY = 'b674540e8432e32c6a5c7af45dbd0a3d4075f923'
+
+				function uploadPhoto() {
+						var formData = new FormData(document.forms.namedItem('fileinfo'))
+						formData.append('access_key', ACCESS_KEY)
+						formData.append('secret_key', SECRET_KEY)
+
+						// Method 1: pure javascript
+						var xhr = new XMLHttpRequest()
+						xhr.open('POST', API_URL)
+						xhr.onload = () =>
+								xhr.status === 200 ?
+								doSomethingWith(JSON.parse(xhr.response)) :
+								console.log(xhr.status)
+						xhr.send(formData)
+
+				}
+				function resetHTML(){
+					document.getElementById("imgg").src ="";
+            document.getElementById("demo").innerHTML ="";
+        }
+				function doSomethingWith(data) {
+						var contact = data;
+
+
+						// document.getElementById("demo").innerHTML = contact.faces[0].age;
+						console.log(data.licensePlates[0])
+						var html_to_insert="<p>Car Plate Number = " +data.licensePlates[0].licensePlateNumber+"</p><p>Accuracy = "+data.licensePlates[0].confidence+"%</p>";
+						document.getElementById("demo").insertAdjacentHTML('beforeend', html_to_insert);
+				}
+				var loadImg = function (event) {
+						var output = document.getElementById('imgg');
+						imgg.src = URL.createObjectURL(event.target.files[0]);
+				};
+				</script>
+			<div class="footer">
+				<p id="filefooter">Copyright © Team Pruner <script>document.write(new Date().getFullYear());</script></p>
+			</div>
+		</div>
+
+</body></html>

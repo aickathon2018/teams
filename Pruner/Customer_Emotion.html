@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Face Recognition</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main2.css">
+    <link rel="stylesheet" href="assets/css/pruner.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+
+<body>
+  <div class="perspective effect-rotate-left">
+    <div class="container"><div class="outer-nav--return"></div>
+      <div id="viewport" class="l-viewport">
+        <div class="l-wrapper">
+          <header class="header">
+            <a class="header--logo" href="index.html">
+              <img src="assets/img/logo.png" alt="Global">
+              <p>Pruner</p>
+            </a>
+          </div>
+          </div>
+          </div>
+          </div>
+<div class="container-form">
+    <div class="left-side">
+      <h1>Emotion Detector</h1>
+        <form class=form_class name="fileinfo">
+            <label>Photo:</label> <input type="file" name="filename" onchange="loadImg(event)" required />
+            <button type="button" onclick="uploadPhoto();">Upload!</button>
+            <button type="button" onclick="resetHTML()">Reset</button>
+        </form>
+        <img src="#" alt="" id="imgg">
+    </div>
+    <div class="right-side">
+        <h2 id="res"><b>Result</b></h2>
+        <p id="demo"></p>
+        <p id="demo2"></p>
+    </div>
+
+<script>
+        var API_URL = 'https://face.recoqnitics.com/analyze'
+        var ACCESS_KEY = 'fb4aa83ffe44994deed7'
+        var SECRET_KEY = 'b674540e8432e32c6a5c7af45dbd0a3d4075f923'
+        function resetHTML(){
+            document.getElementById("demo").innerHTML ="";
+            document.getElementById("demo2").innerHTML ="";
+        }
+        function uploadPhoto() {
+            var formData = new FormData(document.forms.namedItem('fileinfo'))
+            formData.append('access_key', ACCESS_KEY)
+            formData.append('secret_key', SECRET_KEY)
+
+            // Method 1: pure javascript
+            var xhr = new XMLHttpRequest()
+            xhr.open('POST', API_URL)
+            xhr.onload = () =>
+                xhr.status === 200 ?
+                doSomethingWith(JSON.parse(xhr.response)) :
+                console.log(xhr.status)
+            xhr.send(formData)
+
+        }
+
+        function doSomethingWith(data) {
+            var contact = data;
+            var emotion;var emotionPosition=-1;
+            var array1=[contact.faces[0].emotions.angry,contact.faces[0].emotions.disgust,contact.faces[0].emotions.fear,contact.faces[0].emotions.happy,contact.faces[0].emotions.neutral,contact.faces[0].emotions.sad,contact.faces[0].emotions.surprise];
+            console.log(Math.max(...array1));
+            for(var i=0;i<array1.length;i++){
+              if(array1[i]===Math.max(...array1)){
+                emotionPosition=i;
+              }
+            }
+            switch(emotionPosition) {
+              case 0:
+              emotion="angry";
+              break;
+              case 1:
+              emotion="disgust";
+              break;
+              case 2:
+              emotion="fear";
+              break;
+              case 3:
+              emotion="happy";
+              break;case 4:
+              emotion="neutral";
+              break;case 5:
+              emotion="sad";
+              break;
+              case 6:
+              emotion="surprise";
+              break;
+}
+            var html_to_insert ="<p> Age : "+ contact.faces[0].gender.value+"</p>Emotion : "+emotion+"</p>";
+            document.getElementById("demo").insertAdjacentHTML('beforeend', html_to_insert);
+            console.log(data)
+        }
+
+
+        var loadImg = function (event) {
+            var output = document.getElementById('imgg');
+            imgg.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+    </div>
+    <div class="footer">
+      <p id="filefooter">Copyright © Team Pruner <script>document.write(new Date().getFullYear());</script></p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-family:Georgia;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* end of css reseter */
+
+
+.wrapper {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(../img/street_sm.jpg) no-repeat center;
+  background-size: cover;
+  min-height : 100vh;
+  height: 100%;
+}
+
+.fashion-wrapper{
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(../img/fashion.jpg) no-repeat center;
+  background-size: cover;
+  min-height : 100vh;
+  height: 100%;
+}
+
+.face-wrapper {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(../img/face.jpg) no-repeat center;
+  background-size: cover;
+  min-height : 100vh;
+  height: 100%;
+  overflow: scroll;
+}
+
+.title {
+  padding: 25px;
+  text-align : center;
+}
+
+img#logo{
+  max-height:400px;
+  max-width:400px;
+}
+
+h1#LPR{
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Georgia";
+  font-weight: bold;
+  color: white;
+  padding: 20px;
+}
+
+.parag {
+  text-align: center;
+	font-size:18px;
+	color:white;
+}
+
+.upload-form{
+  color: white;
+  margin-top:20px;
+}
+
+.form-content-area{
+  list-style-type: none;
+  padding: 0;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 90%;
+  height: 600px;
+}
+
+.upload{
+  height: 550px;
+   display:inline-block;
+}
+
+h2#uploadSide{
+  text-align: center;
+  font-weight: bold;
+  font-size:18px;
+}
+
+.upload-inner{
+  height: 600px;
+  width: 400px;
+  border-style: dashed;
+  border-width: 2px;
+  border-color: white;
+}
+
+label{
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.custom-file-upload, .custom-url-upload {
+  height:50px;
+  border: 3px solid #afa8a8;
+  display: inline-block;
+  cursor: pointer;
+	margin-top:8px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  color: #e0dfdc;
+  letter-spacing: .1em;
+  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a,
+  0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020,
+  0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616,
+  0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+input#upload-area{
+  display: none;
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+}
+
+@media only screen and (max-device-width: 1024px) {
+    #upload-area{
+        padding: 15% 25%;
+        margin : 30px auto;
+        font-size : 20px;
+    }
+}
+
+@media only screen and (max-device-width: 768px) {
+    #upload-area{
+        padding: 25% 20%;
+        margin : 30px auto;
+        font-size : 22px;
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+   #upload-area{
+        padding: 55% 15%;
+        margin : 40px auto;
+        font-size : 26px;
+    }
+}
+
+label.custom-url-upload{
+  display: flex;
+  width: 350px;
+  padding-bottom: 12px;
+}
+
+#url-holder{
+  color:black;
+  width:70%;
+}
+
+button.url-upload-button{
+  width: 30%;
+  color: black;
+  font-family: helvetica;
+  font-size: 12px;
+}
+
+#uploadImg{
+	margin-top:20px;
+	margin-left:20px;
+  z-index: 0;
+  position: absolute;
+  display: block;
+}
+
+canvas#boxDrawing{
+  padding-bottom: 40px;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+h3{
+  color: #e0dfdc;
+  padding-left: 10px;
+  letter-spacing: .1em;
+  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e,
+  0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828,
+  0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222,
+  0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c,
+  0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616,
+  0 14px 0 #141414, 0 15px 0 #121212,
+  0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+#sample1, #sample2, #sample3, #sample4{
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.jsonResponseArea{
+  height: 550px;
+  width: 400px;
+  font-size: 11px;
+  vertical-align: top;
+}
+
+.responseArea{
+  height: 550px;
+  width: 400px;
+  font-size: 16px;
+  vertical-align: top;
+}
+
+h2#result{
+  text-align: center;
+  font-weight: bold;
+  display:block;
+  font-size:18px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 }
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+  from{ bottom:-100px; opacity:0 }
+  to{ bottom:0; opacity:1 }
+}
+
+.active {
+  border-color:red;
+  border-width:5px;
+}
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  z-index: 20;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  display:none;
+}
+
+div#content{
+  display: block;
+}
+
+pre#json{
+  width: 400px;
+  height: 600px;
+
+	font-size:11
+  border: solid 2px;
+  border-style: dashed;
+  padding-left: 10px;
+  padding-top: 10px;
+  color: #e0dfdc;
+
+  font-size:11px;
+}
+
+pre{
+  width: 400px;
+  height: 600px;
+  background-color: rgba(0,0,0,0);
+  border: solid 2px;
+  border-style: dashed;
+  padding-left: 20px;
+  padding-top: 50px;
+  color: #e0dfdc;
+  letter-spacing: .1em;
+  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a,
+  0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020,
+  0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616,
+  0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+
+
+.bottomBeauty{
+  display : block;
+  margin : 25px auto 0 auto;
+  margin-bottom:100px;
+}
+
+
+.footer{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position : fixed;
+  z-index: 20;
+}
+
+#filefooter{
+  margin: 0px;
+}
+
+.active {
+	border:3px solid red;
+}
+
+
+.description {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.smaple {
+  padding: 10px;
+}
+
