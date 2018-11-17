@@ -1,0 +1,29 @@
+#imgg{
+	margin-top: 25px;
+}
+
+.form_class{
+
+}
+
+.left-side{
+	margin-top: 25px;
+	display: inline-block;
+	vertical-align:top;
+	width: 50%;
+}
+
+.right-side{
+	display: inline-block;
+	width: 45%;
+}
+
+#res{
+	text-align: center;
+}
+
+.container-form {
+	padding-left: 3%;
+	position: static;
+	padding-right: 3%;
+}
