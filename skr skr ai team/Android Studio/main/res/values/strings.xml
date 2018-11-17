@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">17/11/18Trial</string>
+    <string name="title_activity_parking_mark">Map</string>
+    <string name="title_activity_aeon">Aeon</string>
+    <string name="title_activity_parking_details">ParkingDetails</string>
+    <string name="title_activity_loading">Loading</string>
+    <string name="name">parking</string>
+</resources>
