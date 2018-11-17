@@ -7,3 +7,5 @@ No worries, you own all the rights to your intellectual property. We won't claim
 1. Clone this repo.
 2. Add in a project folder.
 3. Commit and Push.
+
+And also, write documentation to introduce your project.
