@@ -1,0 +1,174 @@
+﻿<Window x:Class="test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test"
+        mc:Ignorable="d"
+        AllowsTransparency="False"
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized" WindowStyle="None" Foreground="#D1E2DDDD" >
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FF2D2D30"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="DarkCyan"/>
+        <Style x:Key="ButtonStyle_Notrigger" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FF2D2D30"/>
+                                <Setter Property="TextElement.Foreground" TargetName="border" Value="DarkCyan"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="adimages/shoppingcenter.jpg"/>
+    </Window.Background>
+    <Grid Background="#19000000">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.01*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="0.01*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.01*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.01*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.01*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.01*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.01*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.01*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image x:Name="TrackingVideo" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Fill" Source="black.png" Margin="10,50,0,0"/>
+        <Image x:Name="BodyPic" Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2" Source="black.png" Stretch="Fill" Margin="0,50,10,0"/>
+        <Image x:Name="Advertisement" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="2" OpacityMask="White" Source="adimages/image1.jpeg" Stretch="Fill" Margin="53,127,63.6,0.4" Panel.ZIndex="2" RenderTransformOrigin="0.5,0.5"/>
+        <Image x:Name="AdvertisementStand" Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" Grid.ColumnSpan="2" OpacityMask="White" Source="adimages/stand.png" Stretch="Fill" Margin="42,106.2,53.6,-0.4" Panel.ZIndex="5"/>
+        <Image x:Name="logo" Grid.Column="1" Grid.Row="1"  Grid.ColumnSpan="3
+               " OpacityMask="White" Source="adimages/USMC_Logo_Marine_RGB.png" Panel.ZIndex="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="181" Margin="10,20,10,10"/>
+        <Label Content="AI-LUL Demo Kit" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" FontSize="48" FontFamily="Bebas Neue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,10,0,0" />
+        <WebBrowser x:Name="Dashboard" Grid.Row="1" Grid.RowSpan="6" Grid.ColumnSpan="9" Panel.ZIndex="5" Margin="50,50,80,50" Source="{x:Null}" Visibility="Hidden" Width="500"/>
+
+        <Grid Grid.Column="5" Grid.ColumnSpan="4" Grid.Row="5" Margin="0,0,10,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Stats" Grid.Column="1"  FontSize="20" FontFamily="Segoe MDL2 Assets" Background="Black" Foreground="Azure" Content ="&#xE774;" Style="{DynamicResource ButtonStyle_Notrigger}" Click="ShowWeb"/>
+            <Button x:Name="Previous" Grid.Column="2"  FontSize="20" FontFamily="Segoe MDL2 Assets" Background="Black" Foreground="Azure" Content ="&#xE72B;" Style="{DynamicResource ButtonStyle_Notrigger}" Click="Previous_Click_1"/>
+            <Button x:Name="Next" Grid.Column="3" FontSize="20" FontFamily="Segoe MDL2 Assets" Background="Black" Foreground="Azure" Content ="&#xE72A;" Click="Next_Click" Style="{DynamicResource ButtonStyle_Notrigger}"/>
+            <Button x:Name="StartCapture" Grid.Column="4" FontSize="20" FontFamily="Segoe MDL2 Assets" Background="Black" Foreground="Azure" Content ="&#xE768;" Click="StartCapture_Click" Style="{DynamicResource ButtonStyle_Notrigger}"/>
+            <Button x:Name="CaptureFrame" Grid.Column="5" FontSize="20" FontFamily="Segoe MDL2 Assets" Background="Black" Foreground="Azure" Content="&#xE722;" Click="CaptureFrame_Click" Style="{DynamicResource ButtonStyle_Notrigger}" IsEnabled="False"/>
+            <Button x:Name="Close" Grid.Column="6" FontSize="20" FontFamily="Segoe MDL2 Assets" Background="Black" Foreground="PaleVioletRed" Content ="&#xE711;" Style="{DynamicResource ButtonStyle_Notrigger}" Click="Close_Click"/>
+        </Grid>
+
+        <Grid Grid.Column="3" Grid.ColumnSpan="8" Grid.Row="3" Background="#B22A2B4B" Margin="10,0,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.01*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Background="DarkCyan"/>
+            <Label Grid.Column="0" Grid.Row="0" Content="Age:" FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Column="2" Grid.Row="2" Content="Class:" FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="EmotionLabel2" Grid.Column="2" Grid.Row="0" Content="Emotion" FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="2" Content="Gender:" FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Label x:Name="AgeLabel" Grid.Column="1" Grid.Row="0" Content="34" FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="ClassLabel" Grid.Column="3" Grid.Row="2" Content="Hipster" FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="EmotionLabel" Grid.Column="3" FontFamily="Segoe UI Symbol"  Grid.Row="0" Content="&#x1F604;" FontSize="56" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="GenderLabel" Grid.Column="1" Grid.Row="2" Content="Male" FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+
+
+        </Grid>
+
+        <Grid Grid.Column="7" Grid.Row="1" Margin="0,50,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.02*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.02*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="1" Grid.Row="0" Background="DarkCyan"/>
+            <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Background="DarkCyan"/>
+            <Image x:Name="FacePic" Stretch="Fill" Panel.ZIndex="1"/>
+        </Grid>
+
+        <!--<Label Grid.Column="6" Grid.Row="1" Grid.RowSpan="3" Background="DarkCyan"/>
+        <Label Grid.Column="3" Grid.Row="1" Grid.RowSpan="6" Background="DarkCyan"/>
+        <Label Grid.Column="0" Grid.Row="1" Grid.RowSpan="6" Background="DarkCyan"/>
+        <Label Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="5" Background="DarkCyan"/>
+        <Label Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="5" Background="DarkCyan"/>-->
+    </Grid>
+</Window>
