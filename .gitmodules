@@ -1,0 +1,3 @@
+[submodule "delively"]
+	path = delively
+	url = https://github.com/pickfire/delively
