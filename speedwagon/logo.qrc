@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>profileIcon_snu0djwaxwx11.png</file>
+  </qresource>
+  <qresource prefix="icon1">
+    <file>th.jpg</file>
+    <file>icon1.png</file>
+    <file>th.jpg</file>
+  </qresource>
+  <qresource prefix="back">
+    <file>38416658-clean-light-gentle-geometrical-modern-seamless-pattern-colorful-rectangles-simple-background-vector.jpg</file>
+  </qresource>
+</RCC>
