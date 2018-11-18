@@ -15,6 +15,7 @@ Download and install Nativescript Playground and Nativescript Preview from Plays
 run below commands:
 
 npm install
+
 tns preview --bundle
 
 ### Back-end
@@ -22,4 +23,5 @@ tns preview --bundle
 (For security reasons, most service account details are left out. Anyone testing will have to substitute their own)
 
 npm install
+
 node index.js
