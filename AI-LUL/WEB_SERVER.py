@@ -1,12 +1,12 @@
 import requests 
-import json   
+import json     
 import glob
 import os
 import csv
-import time
 import uuid
+print("Hi!")
 #file = open('data.csv', 'w')
-#file.write("Age,Gender,Angry,Disgust,Fear,Happy,Sad,Surprised,Neutral,Style1,VStyle1,Style2,VStyle2,Style3,VStyle3\n")
+#file.write("ID,Age,Gender,Angry,Disgust,Fear,Happy,Sad,Surprised,Neutral,Style1,VStyle1,Style2,VStyle2,Style3,VStyle3\n")
 #file.close()
 array_of_files_done = []
 while(1):
@@ -14,11 +14,13 @@ while(1):
         list_of_files = glob.glob('OUTPUT_PICS_body\\*.jpg') # * means all if need specific format then *.csv
         latest_file = max(list_of_files, key=os.path.getctime)
        
-        print(latest_file)
+        #print(list_of_files)
         file_fashion = latest_file
         file_face = latest_file
            
         if((latest_file not in array_of_files_done) and latest_file != '') :
+            file = open('data.csv', 'a+', newline='')
+            writer = csv.writer(file)
             row_of_data = []
             rand_num = uuid.uuid4()
             row_of_data.append(str(rand_num)[:8])
@@ -33,8 +35,6 @@ while(1):
 
             fashion = requests.post(url_fashion, files = filename_fashion, data=data)
             face = requests.post(url_face,files = filename_face,data=data)
-            print(face.content)
-
             try:
                 content_fashion = json.loads(fashion.content)
                 face_detection = json.loads(face.content)
@@ -63,13 +63,10 @@ while(1):
                 #print("\n\n")
                 array_of_files_done.append(latest_file)
                 print(row_of_data)
-                file = open('data.csv', 'a+', newline='')
-                writer = csv.writer(file)
                 writer.writerow(row_of_data)
                 file.close()
             except:
                 print("API Timeout--retrying...");
-            #time.sleep(5) 
            
     #else:
     #    print("NO NEW FILES!")
