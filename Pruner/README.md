@@ -1,4 +1,4 @@
-Pruner
+<h1>Pruner</h1>
 ______________________________________________________________________________________________________________________________________________
 Guideline on how use our website : 
 1. Download our project folder and open index.html or access our website via https://pruner.netlify.com/.
