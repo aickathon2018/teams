@@ -1,4 +1,5 @@
 Pruner
+______________________________________________________________________________________________________________________________________________
 Guideline on how use our website : 
 1. Download our project folder and open index.html or access our website via https://pruner.netlify.com/.
 2. If you are accessing our website via index.html, please use Mozilla Firefox as the browser. Please access our website via https://pruner.netlify.com/ for the best experience. Our website is fully compatible and optimsed for smartphone usage,you can scan the QR Code that is embedded in the project folder or go to https://pruner.netlify.com/ using your smartphones.
