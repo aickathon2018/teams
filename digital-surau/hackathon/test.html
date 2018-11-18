@@ -1,0 +1,59 @@
+// sample html
+<form name="fileinfo">
+    <label>Photo:</label> <input type="file" name="filename" required />
+    <button type="button" onclick="uploadPhoto()">Upload!</button>
+</form>
+<br></br><br/>
+&nbsp;
+<img id="gambar" src=''></img>
+<canvas id="canvas"></canvas>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<p id="demo"></p>
+
+<script>
+var API_URL = 'https://face.recoqnitics.com/analyze'
+var ACCESS_KEY = '2f59d21b9433edb14b48'
+var SECRET_KEY = 'd4da3007a94e8acd6adc5631885d406e79549deb'
+//Please edit the parameters above to suit your needs
+
+function uploadPhoto() {
+  var formData = new FormData(document.forms.namedItem('fileinfo'))
+  formData.append('access_key', ACCESS_KEY)
+  formData.append('secret_key', SECRET_KEY)
+  console.log(formData)
+
+  fetch(API_URL, {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(json => doSomethingWith(json))
+  
+}
+
+function doSomethingWith(data) {
+  // do something with your data here
+  //var mArray = JSON.parse(data);
+  //console.log(data['faces'][0].boundingBox.h);
+  
+  var img = document.getElementById("gambar");
+  var cnvs = document.getElementById("canvas");
+  
+  cnvs.style.position = "absolute";
+  cnvs.style.left = img.offsetLeft + "px";
+  cnvs.style.top = img.offsetTop + "px";
+  
+  //var ctx = cnvs.getContext("2d");
+  //ctx.fillStyle = 'rgba(225,225,225,0.2)';
+  //ctx.fillRect(data['faces'][0].boundingBox.x,data['faces'][0].boundingBox.y,data['faces'][0].boundingBox.w,data['faces'][0].boundingBox.h);
+  //ctx.globalAlpha = 1;
+  
+  console.log(data)
+  document.getElementById("demo").innerHTML = JSON.stringify(data);
+}
+
+$("input[type=file]").on("change", function() {
+	  $("[for=file]").html(this.files[0].name);
+	  $("#gambar").attr("src", URL.createObjectURL(this.files[0]));
+	})
+</script>
