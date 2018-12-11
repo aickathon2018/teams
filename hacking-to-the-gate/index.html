@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Outfit Recommendation</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+<style>
+
+	#sidebar {
+    background-color: #ADD8E6;
+    color: #000000;
+    padding: 10px;
+    width: 220px;
+    height: 710px;
+    bottom: 0px;
+    top: 85px;
+    position: absolute;
+    border: 10px;
+    border-radius: 4px;
+    float: left
+	}
+
+	#main {
+    padding: 10px;
+    margin: 0px 5px 15px 210px;
+    width : 1000px;
+    height : 1000px;
+	}
+
+	.container {
+  	column-count: 3;
+  
+	}
+
+	.wrapper {
+   /* position: relative;
+    overflow: auto;*/
+    max-width: 1200px;
+   /* padding-top: 10px;*/
+    padding-right: 10px;
+    padding-left: 10px;
+	}
+
+</style>	
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+	<div id = "top">
+	<div class= "sticky-top"> 
+	<nav class="navbar navbar-expand-lg navbar-light bg-primary w-100" style="color: #E0FFFF">
+	<h3>Trending Fashion Search Engine</h3>
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  	</button>
+  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    	<ul class="navbar-nav mr-auto"></ul>
+	<div class="input-group mb-3" style="width: 30%; height: 20%">
+  		<input type="text" class="form-control" placeholder="Search start with '#'..." aria-label="Search" aria-describedby="button-addon2" name="search">
+  		<div class="input-group-append">
+    		<button class="btn btn-outline-secondary bg-light" type="submit" id="button-addon2">Search</button>
+  		</div>
+	</div>
+	</div>
+	</nav>
+	</div> 
+
+<div class="wrapper">
+			<div id="sidebar">
+			<center><h5>Filter</h5></center>
+      <form action="" method="POST">
+  			<label>Gender:</label>
+  			<br>
+  			<input type="radio" name="sex" id="idsex" value="male" style="width: 5%; margin-right: 2%">Male
+  			<input type="radio" name="sex" id="idsex" value="female" style="width: 5%; margin-left: 10%; margin-right: 2%">Female
+  			<br>
+  			<br>
+  			<label>Age:</label>
+  			<br>
+  			<input type="checkbox" name="agegroup" id="idage" value="agegroup1">1-10 years old<br>
+  			<input type="checkbox" name="agegroup" id="idage" value="agegroup2">11-20 years old<br>
+  			<input type="checkbox" name="agegroup" id="idage" value="agegroup3">21-30 years old<br>
+  			<input type="checkbox" name="agegroup" id="idage" value="agegroup4">31-40 years old<br>
+  			<input type="checkbox" name="agegroup" id="idage" value="agegroup5">41-50 years old<br>
+  			<input type="checkbox" name="agegroup" id="idage" value="agegroup6">more than 50 years old
+  			<br>
+  			<br>
+  			<label>Style:</label>
+  			<br>
+  			<input type="checkbox" name="Casual" value="1">Casual<br>
+  			<input type="checkbox" name="Bohemian" value="1">Bohemian<br>
+  			<input type="checkbox" name="Business" value="1">Business<br>
+  			<input type="checkbox" name="Elegant" value="1">Elegant<br>
+  			<input type="checkbox" name="Romantic" value="1">Romantic<br>
+  			<input type="checkbox" name="Vintage" value="1">Vintage<br>
+  			<input type="checkbox" name="Eclectic" value="1">Electic<br>
+  			<input type="checkbox" name="Rocker" value="1">Rocker<br>
+  			<input type="checkbox" name="Sexy" value="1">Sexy<br>
+  			<input type="checkbox" name="Denim" value="1">Denim<br>
+  			<input type="checkbox" name="Outdoor" value="1">Outdoor<br>
+  			<input type="checkbox" name="90s" value="1">90s<br>   
+  			<center><button type="submit" class="btn btn-primary">Filter</button></center>			
+  			</div>
+      </form>
+
+<div class="wrapper">
+  		<div id="main">
+  		<center>
+      	<h1>Trending Now</h1>
+    	</center>
+    	<p>
+  		<div class="container">
+		</div>
+      	</div>
+
+</div>
+</body>
+
+</html>

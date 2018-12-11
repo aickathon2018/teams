@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "811626004338",
+    "firebase_url": "https://aickathon2018.firebaseio.com",
+    "project_id": "aickathon2018",
+    "storage_bucket": "aickathon2018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811626004338:android:34353599781fd10f",
+        "android_client_info": {
+          "package_name": "aickathon.fd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811626004338-bn2k6ha08gsudlnhk932ie6t9fore568.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRxX0v3IfoP8h6PkZBXnce0BPhZYG1OHw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
